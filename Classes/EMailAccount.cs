@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MailSystem
+namespace MailSystem.Classes
 {
     internal class EMailAccount
     {
@@ -15,10 +15,10 @@ namespace MailSystem
         public List<EMailBox> EMailBox { get; set; }
         public EMailAccount(string fullname, string login, string password)
         {
-            this.Fullname = fullname;
-            this.Login = login;
-            this.Password = password;
-            this.EMailAddress = $"{Login}.{DateTime.Now.ToString("yyyy")}@ms.com";
+            Fullname = fullname;
+            Login = login;
+            Password = password;
+            EMailAddress = $"{Login}.{DateTime.Now.ToString("yyyy")}@ms.com";
             EMailBox = new List<EMailBox>();
         }
     }

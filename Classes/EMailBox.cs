@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MailSystem
+namespace MailSystem.Classes
 {
     internal class EMailBox
     {
@@ -15,10 +15,10 @@ namespace MailSystem
 
         public EMailBox(string subject, string text, string from)
         {
-            this.Subject = subject;
-            this.Text = text;
-            this.From = from;
-            this.Status = true;
+            Subject = subject;
+            Text = text;
+            From = from;
+            Status = true;
         }
     }
 }

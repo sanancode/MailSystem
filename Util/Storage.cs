@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MailSystem.Classes;
 
-namespace MailSystem
+namespace MailSystem.Util
 {
     internal class Storage
     {

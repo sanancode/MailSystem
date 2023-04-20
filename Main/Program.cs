@@ -1,13 +1,14 @@
-﻿namespace MailSystem
+﻿using MailSystem.Management;
+using MailSystem.Util;
+
+namespace MailSystem.Main
 {
     internal class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("\tWelcome to Mail System\n");
-
             run();
-
             Console.WriteLine("\tEnded the system");
         }
 

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MailSystem.Classes;
+using MailSystem.Util;
 
-namespace MailSystem
+namespace MailSystem.Management
 {
     internal class MailOperationsManagement
     {
