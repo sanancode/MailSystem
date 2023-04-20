@@ -11,7 +11,7 @@ namespace MailSystem
         public static void enterMailBox()
         {
             string emailaddress = MenuUtil.getString("\nPlease enter your email address: ");
-            string password = MenuUtil.getString("nPlease enter your Password: ");
+            string password = MenuUtil.getString("Please enter your Password: ");
 
             //email address ve passwordu movcudlugunu teyin edir
             bool flag = false;

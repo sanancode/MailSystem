@@ -20,9 +20,11 @@ namespace MailSystem
                 case 1:
                     Console.WriteLine("\nSend email...");
                     sendEMail(emailaddress);
+                    MailBoxOperationsMenuSelection(emailaddress);
                     break;
                 case 2:
                     showUnreadEMails(emailaddress);
+                    MailBoxOperationsMenuSelection(emailaddress);
                     break;
                 case 3:
                     break;
@@ -41,7 +43,7 @@ namespace MailSystem
 
                 EMailBox newemail = new EMailBox(subject, text, from);
                 Storage.mailAccounts[towho()].EMailBox.Add(newemail);
-                Console.WriteLine($"Email sent to {Storage.mailAccounts[towho()].Fullname}...");
+                Console.WriteLine($"\nEmail sent to {Storage.mailAccounts[towho()].Fullname}...");
             }
             else
             {
@@ -99,20 +101,40 @@ namespace MailSystem
         {
             Console.WriteLine("\n");
             int row = 1;
+            int activeaccindex = 0;
+            bool flag = false; //true olarsa unread mail var demekdir
 
+            //unread olan mailleri gosterir
             for (int i = 0; i < Storage.mailAccounts.Count; i++) //email accountlar uzre addimlama
             {
                 if (emailaddress == Storage.mailAccounts[i].EMailAddress) //cari olaraq aktiv olan acc-lar arasinda tapir
                 {
+                    activeaccindex = i;
                     for (int j = 0; j < Storage.mailAccounts[i].EMailBox.Count; j++) //cari acc-u tapdiqdan sonra acc-da olan emaillar uzerinde addimlama
                     {
                         if (Storage.mailAccounts[i].EMailBox[j].Status == true) //emaillardan statusu active(true) olanlari capa teyin edir (sonra capa verir)
                         {
                             Console.WriteLine($"{row}. mail: {Storage.mailAccounts[i].EMailBox[j].Subject} , to open press: {j}");
                             row++;
+                            flag = true;
                         }
                     }
                 }
+            }
+
+            //sec ve mailin icini goster
+            if (flag)
+            {
+                int mailnum = MenuUtil.selectMenuAbove();
+
+                Console.WriteLine($"\nFrom: {Storage.mailAccounts[activeaccindex].EMailBox[mailnum].From}");
+                Console.WriteLine($"Subject: {Storage.mailAccounts[activeaccindex].EMailBox[mailnum].Subject}");
+                Console.WriteLine($"Mail: {Storage.mailAccounts[activeaccindex].EMailBox[mailnum].Text}");
+                Storage.mailAccounts[activeaccindex].EMailBox[mailnum].Status = false;
+            }
+            else
+            {
+                Console.WriteLine("\nThere is not any unread emails\n");
             }
         }
     }

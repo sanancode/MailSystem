@@ -11,7 +11,7 @@ namespace MailSystem
         public string Subject { get; set; }
         public string Text { get; set; }
         public string From { get; set; }
-        public bool Status { get; set; } //unread or read
+        public bool Status { get; set; } //unread or read true olanda unread olur
 
         public EMailBox(string subject, string text, string from)
         {
